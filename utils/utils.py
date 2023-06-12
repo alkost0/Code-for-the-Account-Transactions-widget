@@ -28,7 +28,9 @@ def change_date(data):
 #Операции разделены пустой строкой
 def change_number(str_):
     """
+    Совмещенная функция с маскировкой счета (карта и простой расчетный).
     Номер карты замаскирован и не отображается целиком в формате  XXXX XX** **** XXXX
+    Номер счета замаскирован и не отображается целиком в формате  **XXXX
     """
     str_list = str_.split(' ')
     number = str_list[-1]
@@ -41,3 +43,5 @@ def change_number(str_):
 #Операции разделены пустой строкой
 #print(change_number("Maestro 1234567890123456"))
 #print(change_number("Счет 1234567890123456"))
+
+#print(load_5operation(FILE))

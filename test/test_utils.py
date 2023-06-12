@@ -6,15 +6,15 @@ def test_change_date():
     assert change_date("2019-08-16T04:23:41.621065") == "16.08.2019"
     assert change_date("2018-07-06T22:32:10.495465") == "06.07.2018"
     assert change_date("2018-02-13T04:43:11.374324") == "13.02.2018"
-    assert change_date("2018-01-23T01:48:30.477053") == "23.01.2018"
+    assert change_date("2018-01-23") == "23.01.2018"
 #Операции разделены пустой строкой
-def test_change_numberAcc():
+def test_change_number():
     assert change_number("Счет 72645194281643232984") == "Счет **2984"
     assert change_number("Счет 95782287258966264115") == "Счет **4115"
     assert change_number("Счет 11492155674319392427") == "Счет **2427"
     assert change_number("Счет 59986621134048778289") == "Счет **8289"
 #Операции разделены пустой строкой
-def test_change_numberCard():
+def test_change_number():
     assert change_number("МИР 1582474475547301") == "МИР 1582 24** **** 7301"
     assert change_number("Maestro 1913883747791351") == "Maestro 1913 88** **** 1351"
     assert change_number("MasterCard 8826230888662405") == "MasterCard 8826 23** **** 2405"

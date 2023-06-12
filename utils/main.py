@@ -26,4 +26,6 @@ def main():
         print(operation["operationAmount"]["amount"] + " " + operation["operationAmount"]["currency"]["name"], end="\n\n")
 
 if __name__ == "__main__":
-    main()
+    data = main()
+    for item in data:
+        print(item)
