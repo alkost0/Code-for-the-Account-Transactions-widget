@@ -1,4 +1,4 @@
-from utils import load_5operation, change_date, change_number
+from utils import load_operation, change_date, change_number
 
 FILE = "operations.json"
 #Операции разделены пустой строкой
@@ -6,7 +6,7 @@ def main():
     """
     Последние 5 выполненных (EXECUTED) операций выведены на экран
     """
-    operations = load_5operation(FILE)
+    operations = load_operation(FILE)
     for operation in operations:
         operation["date"] = change_date(operation["date"])
         try:

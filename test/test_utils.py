@@ -1,4 +1,4 @@
-from utils.utils import change_date, change_number, load_5operation
+from utils.utils import change_date, change_number, load_operation
 
 FILE = "operations.json"
 #Операции разделены пустой строкой
@@ -9,16 +9,16 @@ def test_change_date():
     assert change_date("2018-01-23") == "23.01.2018"
 #Операции разделены пустой строкой
 def test_change_number():
-    assert change_number("Счет 72645194281643232984") == "Счет **2984"
-#    assert change_number("Счет 95782287258966264115") == "Счет **4115"
-#    assert change_number("Счет 11492155674319392427") == "Счет **2427"
-#    assert change_number("Счет 59986621134048778289") == "Счет **8289"
-    assert change_number("МИР 1582474475547301") == "МИР 1582 24** **** 7301"
+    assert change_number("Счет 72645194281643232984") == "**2984"
+#    assert change_number("Счет 95782287258966264115") == "**4115"
+#    assert change_number("Счет 11492155674319392427") == "**2427"
+#    assert change_number("Счет 59986621134048778289") == "**8289"
+    assert change_number("МИР 1582474475547301") == "1582 24** **** 7301"
 #    assert change_number("Maestro 1913883747791351") == "Maestro 1913 88** **** 1351"
 #    assert change_number("MasterCard 8826230888662405") == "MasterCard 8826 23** **** 2405"
-    assert change_number("Visa Gold 3654412434951162") == "Visa Gold 3654 41** **** 1162"
+    assert change_number("Visa Gold 3654412434951162") == "3654 41** **** 1162"
 #Операции разделены пустой строкой
-def test_load_5operation():
+def test_load_operation():
     file_list = [
         {
             "id": 179194306,
@@ -41,4 +41,4 @@ def test_load_5operation():
             "date": "2019-07-15T11:47:40.496961"
         }
     ]
-    assert load_5operation(FILE) == file_list
+    assert load_operation(FILE) == file_list

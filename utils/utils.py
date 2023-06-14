@@ -3,7 +3,7 @@ from datetime import datetime
 
 FILE = "operations.json"
 #Операции разделены пустой строкой
-def load_5operation(FILE):
+def load_operation(FILE):
     """
     Последние 5 выполненных (EXECUTED) операций выведены на экран
     """
@@ -40,10 +40,10 @@ def change_number(str_):
         return number[:4] + ' ' + number[4:6] + '** **** ' + number[-4:]
     else:
         if str_list[0] == 'Счет':
-            return '**' + number[-4:]
+            return 'Счет ' + '**' + number[-4:]
         return number[:4] + ' ' + number[4:6] + '** **** ' + number[-4:]
 #Операции разделены пустой строкой
 #print(change_number("Maestro 1234567890123456"))
 #print(change_number("Счет 1234567890123456"))
 
-print(load_5operation(FILE))
+print(load_operation(FILE))
