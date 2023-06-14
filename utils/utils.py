@@ -1,8 +1,9 @@
-import json
 from datetime import datetime
 
 FILE = "operations.json"
-#Операции разделены пустой строкой
+
+
+# Операции разделены пустой строкой
 def load_operation(FILE):
     """
     Последние 5 выполненных (EXECUTED) операций выведены на экран
@@ -19,31 +20,40 @@ def load_operation(FILE):
         sorted_operations = sorted(result_executed, key=lambda x: x["date"], reverse=True)
         last_operations = sorted_operations[:5]
         return last_operations
-#Операции разделены пустой строкой
+
+
+# Операции разделены пустой строкой
 def change_date(data):
     """
     Дата перевода представлена в формате ДД.ММ.ГГГГ (пример: 14.10.2018)
     """
-    thedate = datetime.fromisoformat(data)
-    date_formatted = thedate.strftime("%d.%m.%Y")
-    return date_formatted
-#Операции разделены пустой строкой
-def change_number(str_):
+    newdate = datetime.fromisoformat(data)
+    return newdate.strftime("%d.%m.%Y")
+
+
+# Операции разделены пустой строкой
+def change_cardnumber(cardnumber=""):
     """
-    Совмещенная функция с маскировкой счета (карта и простой расчетный).
     Номер карты замаскирован и не отображается целиком в формате  XXXX XX** **** XXXX
+    """
+    new = cardnumber.split(" ")
+    new_number = new[-1][:4] + " " + new[-1][4:6] + "**" + " " + "****" + " " + new[-1][-4:]
+    new[-1] = new_number
+    return " ".join(new)
+
+
+def change_accnumber(accnumber):
+    """
     Номер счета замаскирован и не отображается целиком в формате  **XXXX
     """
-    str_list = str_.split(' ')
-    number = str_list[-1]
-    if len(str_list) > 2 :
-        return number[:4] + ' ' + number[4:6] + '** **** ' + number[-4:]
-    else:
-        if str_list[0] == 'Счет':
-            return 'Счет ' + '**' + number[-4:]
-        return number[:4] + ' ' + number[4:6] + '** **** ' + number[-4:]
-#Операции разделены пустой строкой
-#print(change_number("Maestro 1234567890123456"))
-#print(change_number("Счет 1234567890123456"))
+    account = accnumber.split(" ")
+    new_account = "**" + account[-1][-4:]
+    account[-1] = new_account
+    return " ".join(account)
+
+
+# Операции разделены пустой строкой
+# print(change_number("Maestro 1234567890123456"))
+# print(change_number("Счет 1234567890123456"))
 
 print(load_operation(FILE))
