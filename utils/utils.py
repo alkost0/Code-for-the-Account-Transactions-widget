@@ -1,11 +1,13 @@
 import json
 from datetime import datetime
+
+FILE = "operations.json"
 #Операции разделены пустой строкой
 def load_5operation(FILE):
     """
     Последние 5 выполненных (EXECUTED) операций выведены на экран
     """
-    with open(FILE, "r", encoding="utf -8") as file:
+    with open(FILE, "r", encoding="utf-8") as file:
         result = json.load(file)
         result_executed = []
         for operation in result:
@@ -44,4 +46,4 @@ def change_number(str_):
 #print(change_number("Maestro 1234567890123456"))
 #print(change_number("Счет 1234567890123456"))
 
-#print(load_5operation(FILE))
+print(load_5operation(FILE))
