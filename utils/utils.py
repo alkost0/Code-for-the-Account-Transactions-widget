@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import json
 FILE = "operations.json"
 
 
@@ -55,5 +55,4 @@ def change_accnumber(accnumber):
 # Операции разделены пустой строкой
 # print(change_number("Maestro 1234567890123456"))
 # print(change_number("Счет 1234567890123456"))
-
-print(load_operation(FILE))
+#print(load_operation(FILE))

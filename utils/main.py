@@ -1,6 +1,8 @@
 from utils import load_operation, change_date, change_cardnumber, change_accnumber
 
 FILE = "operations.json"
+
+
 #Операции разделены пустой строкой
 def main():
     """
